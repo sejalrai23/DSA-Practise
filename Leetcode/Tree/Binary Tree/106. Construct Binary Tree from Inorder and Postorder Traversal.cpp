@@ -49,3 +49,7 @@ public:
     return make_tree(0, inorder.size() - 1, idx, postorder, inorder);
   }
 };
+
+//Time Complexity: O(N) since we are visiting every node from postorder array at once and creating a node for it.
+
+//Space Complexity: O(N) since we are creating a mapping for every node that will contain its index for a node in inorder array.
