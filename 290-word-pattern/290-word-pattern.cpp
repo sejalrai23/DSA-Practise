@@ -9,13 +9,10 @@ public:
         while(iss && i<pattern.length()){
             string fin;
             iss>>fin;
-            // cout<<fin<<"-"<<pattern[i]<<endl;
-            // m[pattern[i]]=fin;
             m.insert({pattern[i],fin});
             p1.insert(pattern[i]);
             s2.insert(fin);
-            i++;
-            
+            i++;   
         }
         if((p1.size()!=s2.size()) ){
             return false;
@@ -26,12 +23,11 @@ public:
             if(it!=m.end()){
                 ans+=it->second;
                 i!=pattern.length()-1 ? ans+=" ": ans;
-            }
-            
+            }   
         }
-        // cout<<ans;
-        
-        return ans==s;
-        
+        return ans==s;    
     }
 };
+
+// TC= 0(Nlogn) + 0(Nlogn)
+// SC= 0(3N)
