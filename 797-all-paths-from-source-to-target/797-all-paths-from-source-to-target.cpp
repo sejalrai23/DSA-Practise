@@ -8,7 +8,7 @@ public:
         vis.push_back(node);
         if(node==target-1){
             ans.push_back(vis);
-            return;
+            // return;
         }
         for(auto it: graph[node]){
                 
