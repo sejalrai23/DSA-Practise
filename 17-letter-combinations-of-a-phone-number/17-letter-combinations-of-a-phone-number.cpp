@@ -12,8 +12,9 @@ void helper(string &digits, int i, string combi){
 		ans.push_back(combi);    
 	else // add and recurse for each character (chosen from current digit-charcter mapping)
 		for(auto c : mappings[digits[i] - '2']){
-            // combi+=c;
-            helper(digits, i + 1, combi+c );
+            combi+=c;
+            helper(digits, i + 1, combi );
+            combi.pop_back();
         } // <= -2 bcoz digits are in range ['2','9']. We need to convert them to indices from 0 to 8 for indexing mappings.
 			
 }
