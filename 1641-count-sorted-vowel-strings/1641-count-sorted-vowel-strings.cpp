@@ -1,18 +1,12 @@
 class Solution {
 public:
-
-    int cnt=0;
-    void Combi(int idx ,int n,int pos){
-        if(idx==n){
-            cnt++;
-            return;
-        }
-        for(int i=pos;i<5;i++){
-            Combi(idx+1,n,i);
-        }
-    }
     int countVowelStrings(int n) {
-        Combi(0,n,0);
-        return cnt;
+        vector<int> dp(5, 1);
+        for(int i=0; i<n; i++){
+            for(int j=1; j<5; j++){
+                dp[j] = dp[j-1] + dp[j];
+            }
+        }
+        return dp[4];
     }
 };
