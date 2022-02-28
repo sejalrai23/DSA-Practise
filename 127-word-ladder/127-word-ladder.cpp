@@ -2,8 +2,12 @@ class Solution {
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
         unordered_set<string> dict(wordList.begin(), wordList.end());
+        if(dict.find(endWord)==dict.end()){
+            return 0;
+        }
         queue<string> todo;
         todo.push(beginWord);
+        
         int ladder = 1;
         while (!todo.empty()) {
             int n = todo.size();
