@@ -16,7 +16,6 @@ public:
                     continue;
                 }
             }
-            // cout<<it<<"-"<<cnt<<endl;
             if(it.first.length()==cnt){
                 
                 ans+=it.second;
@@ -26,3 +25,6 @@ public:
         
     }
 };
+
+// TC= O(N) == O(5000) + O(5000)*O(50) == O(10^4) == O(N)
+//SC=O(5000)
