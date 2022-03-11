@@ -7,27 +7,42 @@ using namespace std;
  // } Driver Code Ends
 //User function template for C++
 
+// class Solution{   
+// public:
+//     int getPairsCount(int arr[], int n, int k) {
+//         // code here
+//         int cnt=0;
+//         map<int,int> m;
+//         for(int i=0;i<n;i++){
+//             m[arr[i]]++;
+//         }
+//         for(int i=0;i<n;i++){
+//             auto it = m.find(k-arr[i]);
+//             m[arr[i]]--;
+//             if(it!=m.end()){
+//                 cnt+=(it->second) ;
+//             }
+//         }
+//         return cnt;
+//     }
+// };
 class Solution{   
 public:
-    int getPairsCount(int arr[], int n, int k) {
-        // code here
-        int cnt=0;
-        map<int,int> m;
-        for(int i=0;i<n;i++){
-            m[arr[i]]++;
-        }
-        for(int i=0;i<n;i++){
-            auto it = m.find(k-arr[i]);
-            // cout<<it->first<<"-"<<it->second<<endl;
-            m[arr[i]]--;
-            if(it!=m.end()){
-                cnt+=(it->second) ;
-                // cout<<cnt<<endl;
-                
-            }
-        }
-        return cnt;
-    }
+int getPairsCount(int arr[], int n, int k) {
+     unordered_map <int,int> mp;
+     int cnt=0;
+     for(int i=0;i<n;i++){
+         if(mp[k-arr[i]]){
+             cnt+=mp[k-arr[i]];  
+             mp[arr[i]]++;
+         }
+         else{
+             mp[arr[i]]++;
+         }
+         }
+         
+         return cnt;
+     }
 };
 
 // { Driver Code Starts.
