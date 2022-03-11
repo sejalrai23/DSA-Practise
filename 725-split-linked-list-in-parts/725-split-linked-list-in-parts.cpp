@@ -18,7 +18,7 @@ public:
            dum=dum->next;
            len++;
         }
-        // cout<<len<<"-"<<len%k<<endl;
+        //case-1 when len can be equally divided in k parts
         if(len%k==0 && len!=0){
             int q=len/k;
             while(head){
@@ -33,6 +33,7 @@ public:
                 ans.push_back(rev);   
             }
         }
+        //case 2 when len < k
         else if (len%k==len){
             int rem=k-len;
             while(head){
@@ -44,22 +45,21 @@ public:
             for(int i=0;i<rem;i++){
                 ans.push_back({});
             }
-        }else{
-           
-            int ex =len%k;
+        }
+        //case 3 when len%k!=0
+        else{
+             int ex =len%k;
              int ac=len/k;
-            int ac2=ac+1;
+             int ac2=ac+1;
             for(int i=0;i<ex;i++){
-            
-   
-                    ListNode* itr=head;
-                    ListNode* rev=itr;
-                    for(int j=0;j<ac2-1;j++){
-                        itr=itr->next;
-                    }
-                    head=itr->next;
-                    itr->next=NULL;
-                    ans.push_back(rev);    
+                ListNode* itr=head;
+                ListNode* rev=itr;
+                for(int j=0;j<ac2-1;j++){
+                    itr=itr->next;
+                }
+                head=itr->next;
+                itr->next=NULL;
+                ans.push_back(rev);    
                 
             }
             while(head ){
@@ -72,12 +72,8 @@ public:
                 head=itr2->next;
                 itr2->next=NULL;
                 ans.push_back(rev2);
+            }
         }
-        }
-        
-        
-        
-        
         return ans;    
     }
 };
