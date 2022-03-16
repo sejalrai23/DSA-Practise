@@ -1,1 +1,1 @@
-​
+use unorderd set to store elements while recovering itself and return set.count(target)
