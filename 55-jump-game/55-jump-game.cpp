@@ -8,8 +8,12 @@ public:
             
             reach=max(reach, i+nums[i]);
             
+            if(reach>=nums.size()-1){
+                return true;
+            }
+            
             if(i==reach ){
-                if(nums.size()-1==reach){
+                if(nums.size()-1==reach){  // cases like [0]
                     return true;
                 }
                 return false;
