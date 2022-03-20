@@ -43,6 +43,7 @@ public:
                     }
                 }
             }
+            vis.clear();
     
         }
         else{
@@ -60,6 +61,7 @@ public:
                     }
                 }
             }
+            vis.clear();
 
         }
         return cnt ;
