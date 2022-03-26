@@ -5,13 +5,13 @@ public:
         q.push(node);
         color[node]=1;
         while(!q.empty()){
-            int node=q.front();
+            int n=q.front();
             q.pop();
-            for(auto it : graph[node]){
+            for(auto it : graph[n]){
                 if(color[it]==-1){
-                    color[it]=1-color[node];
+                    color[it]=1-color[n];
                     q.push(it);
-                }else if(color[it]==color[node]){
+                }else if(color[it]==color[n]){
                     return false;}
             }
         }
