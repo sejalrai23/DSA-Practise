@@ -30,11 +30,7 @@ public:
         if(row==0){
             return false;
         }
-        // for(auto it: matrix[row-1]){
-        //     cout<<it<<endl;
-        // }
         return BinarySearch(matrix[row-1],0,matrix[row-1].size()-1,target);
-        // return true;
         
     }
 };
