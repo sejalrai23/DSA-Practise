@@ -26,10 +26,6 @@ public:
                 s.push(val2);
                 s.push(val1);
                 s.push(val1+val2);
-                // sum+=s.top();
-                // s.pop();
-                // sum+=s.top();
-                // s.pop();
                 sum+=s.top();
                 
                 
