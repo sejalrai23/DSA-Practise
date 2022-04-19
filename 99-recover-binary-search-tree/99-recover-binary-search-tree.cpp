@@ -21,6 +21,7 @@ public:
             return;
         }
         inorder(root->left);
+        
         if(root->val<prev->val){
             if(first==NULL){
                 first=prev;
