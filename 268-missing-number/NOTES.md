@@ -1,3 +1,4 @@
+**BIT MANUPULATION**
 class Solution {
 public:
 int missingNumber(vector<int>& nums) {
@@ -10,7 +11,7 @@ x2=x2^(i+1);     // here x2 will store 1^2^3
 return x1^x2;//  a^a=0 ,so the number present both in x1 and x2 will cancel out(become zero ) and the element which is not present in x1 . i.e 2 will be returned by the function.
 }
 };
-​
+**CUMULATE SUM**
 ​
 class Solution {
 public:
@@ -24,7 +25,7 @@ return total - sum;
 }
 };
 ​
-​
+**BIT MANUPULATION**
 class Solution {
 public:
 int missingNumber(vector<int>& nums) { // function to return missing number
