@@ -16,19 +16,19 @@ public:
             nodes.push_back(head->val);
             head=head->next;
         }
-        vector<int> ans(nodes.size()); 
+
         stack<int> s;
         for (int i = nodes.size() - 1; i >= 0; i--) { 
-     
+           int val=nodes[i];
            while (!s.empty() && s.top() <= nodes[i]) { 
                 s.pop(); 
             
            }
         
-          ans[i] = s.empty() ? 0 : s.top(); 
-          s.push(nodes[i]); 
-    }
-    return ans;
+          nodes[i] = s.empty() ? 0 : s.top(); 
+          s.push(val); 
+       }
+       return nodes;
         
     
         
