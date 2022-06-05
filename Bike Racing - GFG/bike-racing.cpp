@@ -28,14 +28,15 @@ public:
             long mid = st + (end-st)/2;
             long ans=checkHour(H, A, M , L ,N , mid);
             // cout<<ans<<endl;
-            if(ans>=M){
-                res=mid;
+            if(ans==M){
+                return mid;
+            }else if(ans>M){
                 end=mid-1;
             }else{
                 st=mid+1;
             }
         }
-        return res;
+        return st;
     }
 };
 
