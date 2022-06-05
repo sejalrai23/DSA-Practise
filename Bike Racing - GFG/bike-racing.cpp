@@ -10,26 +10,32 @@ using namespace std;
 class Solution{
 public:
     
+    bool checkHour(long H[], long A[],long M, long L,long N , long hour ){
+       long ans=0;
+        for(long i=0;i<N ; i++){
+            if((hour*A[i] + H[i]) >= L){
+                ans+=(hour*A[i]+H[i]);
+            }
+        }
+    
+        return ans>=M;
+    }
     long buzzTime(long N, long M, long L, long H[], long A[])
     {
         // code here
-        long low = 0;
-        long high = max(L,M);
-        long ans = 0;
-        while(low<=high){
-            long mid = (low+high)/2;
-            long fast =0;
-            for(long i=0;i<N;i++){
-                if(H[i]+A[i]*mid>=L)
-                fast+=H[i]+A[i]*mid;
+        long st=0 ,res=0, end= max(L,M);
+        while(st<=end){
+            long mid = st + (end-st)/2;
+           
+            // cout<<ans<<endl;
+            if( checkHour(H, A, M , L ,N , mid)){
+                res=mid;
+                end=mid-1;
+            }else{
+                st=mid+1;
             }
-            if(fast>=M){
-                ans = mid;
-                high = mid-1;
-            }
-            else low = mid+1;
         }
-        return ans;
+        return res;
     }
 };
 
