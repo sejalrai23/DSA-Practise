@@ -5,9 +5,8 @@ public:
         unordered_map<char , int> mp;
         while(j<s.length()){
             mp[s[j]]++;
-            if(j-i+1 < mp.size()){
-                j++;
-            }else if(j-i+1==mp.size()){
+            
+          if(j-i+1==mp.size()){
                 maxi=max(maxi , j-i+1);
                 j++;
             }else{
