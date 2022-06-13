@@ -17,6 +17,8 @@ public:
         
         if(target==0) return 1;
         
+        if(dp[N][target]!=-1) return dp[N][target];
+        
         if(arr[N-1]<=target){
            return  dp[N][target]=recursion(N-1 , arr , dp , target-arr[N-1] ) || recursion(N -1, arr , dp , target);
             
