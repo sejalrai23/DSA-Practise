@@ -9,34 +9,34 @@ using namespace std;
 
 class Solution{
 public:
+
+    int recursion(int N , int arr[], vector<vector<int>> &dp , int target ){
+        if(N==0 && target==0) return 1;
+        
+        if(N==0) return 0;
+        
+        if(target==0) return 1;
+        
+        if(arr[N-1]<=target){
+           return  dp[N][target]=recursion(N-1 , arr , dp , target-arr[N-1] ) || recursion(N -1, arr , dp , target);
+            
+        }
+            
+        return dp[N][target]=recursion(N-1 , arr , dp , target);
+        
+        
+    }
     int equalPartition(int N, int arr[])
     {
         // code here
         int sum=0;
-        for(int i=0;i<N ;i++){
+        for(int i=0;i<N;i++){
             sum+=arr[i];
         }
-        if(sum%2 !=0) return 0;
+        if(sum%2!=0) return 0;
         int target=sum/2;
-        int dp[N+1][target+1];
-        for(int i=0;i<=N ;i++){
-            for(int j=0;j<=target;j++){
-                if(i==0) dp[i][j]=false;
-                else if(j==0) dp[i][j]=true;
-            }
-        }
-        
-        for(int i=1;i<=N ;i++){
-            for(int j=1;j<=target;j++){
-                if(arr[i-1]<=j){
-                    dp[i][j]=dp[i-1][j-arr[i-1]] || dp[i-1][j];
-                }else{
-                    dp[i][j]=dp[i-1][j];
-                }
-            }
-        }
-        
-        return dp[N][target];
+        vector<vector<int>> dp(N+1, vector<int>(target+1, -1));
+        return recursion(N , arr , dp , target);
     }
 };
 
