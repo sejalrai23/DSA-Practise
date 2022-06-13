@@ -1,21 +1,33 @@
 class Solution {
-  public:
-   int recur(int n , int m , string s , string t , vector<vector<int>> &dp){
-       if(n<0) return m+1;
-       if(m<0) return n+1;
-       if(dp[n][m]!=-1) return dp[n][m];
-       if(s[n]==t[m]){
-           return dp[n][m] = 0+ recur(n-1 , m-1, s , t, dp);
-       }
-       return dp[n][m]= 1 + min(recur(n-1 , m , s, t , dp) ,min(recur(n , m-1 , s, t , dp),recur(n-1 , m-1 , s , t, dp)) );
-       
-   }
+public:
     int minDistance(string s, string t) {
-        // Code here
-        int n=s.length() , m=t.length();
-        vector<vector<int>> dp(n, vector<int>(m, -1));
+        int n=s.length();
+        int m=t.length();
+        int dp[n+1][m+1];
         
-        return recur(n -1, m-1 ,s , t, dp);
+        for(int i=0;i<=n ;i++){
+            for(int j=0;j<=m ;j++){
+                if(i==0) {
+                    dp[i][j]=j;
+                }
+                else if(j==0){
+                    dp[i][j]=i;
+                }
+            }
+        }
+        
+        for(int i=1;i<=n ;i++){
+            for(int j=1;j<=m ;j++){
+                if(s[i-1]==t[j-1]){
+                    dp[i][j]= dp[i-1][j-1];
+                }else{
+                    dp[i][j]= 1+ min(dp[i-1][j], min(dp[i][j-1], dp[i-1][j-1]));
+                }
+            }
+        }
+        
+        return dp[n][m];
+        
         
     }
 };
