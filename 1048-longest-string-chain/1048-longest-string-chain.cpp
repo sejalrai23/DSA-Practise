@@ -11,7 +11,7 @@ class Solution {
                 string prev = word.substr(0, i) + word.substr(i + 1);
                 cout<<prev<<endl;
                 if (dp.find(prev) != dp.end()) {
-                    dp[word] = dp[prev] + 1;
+                    dp[word] = max(dp[word], dp[prev] + 1);
                     res = max(res, dp[word]);
                 }
             }
