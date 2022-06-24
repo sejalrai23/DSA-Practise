@@ -1,33 +1,34 @@
 class Solution {
 public:
-    bool check(int i,int j,string &s)
- { 
-    for(;i<j;i++,j--)
-        if(s[i]!=s[j])
-            return false;
-    return true;
-}
-
-int calMin(int ind,string &s,vector<int> &dp)
-{
-    if(ind==s.size())
-        return 0;
-    
-    if(dp[ind]!=-1)
-        return dp[ind];
-    
-    int mini = 1e9;
-    for(int j=ind;j<s.size();j++)
-    {
-        if(check(ind,j,s))
-            mini = min(mini,1+calMin(j+1,s,dp));
+    bool isPalindrome(int i , int j, string &str, vector<vector<int>>& dp){
+        while(i<j){
+            if(str[i]!=str[j]) return false;
+            i++;
+            j--;
+        }
+        return true;
     }
-    return dp[ind] = mini;
-}
     
-int minCut(string &s) 
-{
-    vector<int> dp(s.size(),-1);
-    return calMin(0,s,dp)-1;     // last one extra partion will be counted due to 1 + calMin(j+1,s,dp)
-}
+    int recur(int i , int n , string& str, vector<int>& dp, vector<vector<int>> &dp1){
+        if(i==n) return 0; //no partition 
+        if(dp[i]!=-1) return dp[i];
+        if(isPalindrome(i , n-1 , str  , dp1)) return dp[i]=1;
+            
+        int minCost=INT_MAX ;
+        for(int j=i;j<n ;j++){
+            if(isPalindrome(i , j , str, dp1)){
+                int cost= 1+ recur(j+1 , n, str, dp, dp1);
+                minCost=min(minCost, cost);
+            }
+        }
+        return dp[i]=minCost;
+    }
+    int minCut(string s) {
+        vector<int> dp(s.length(), -1);
+        vector<vector<int>> dp1(s.length(), vector<int>(s.length(),-1));
+        int ans= recur(0 , s.length(), s , dp, dp1);
+        // cout<<ans<<endl;
+        return  ans-1; //ABC partition is done  A| B | C | then i==n is checked
+        
+    }
 };
