@@ -12,7 +12,6 @@ public:
     }
     long long countPairs(int n, vector<vector<int>>& edges) {
         long long ans= ((long long)n *(n-1))/2;
-            // ll ans = ((ll)n*(n-1))/2
         vector<vector<int>> adj(n);
         for(auto it : edges){
             adj[it[0]].push_back(it[1]);
