@@ -1,35 +1,29 @@
 class Solution {
 public:
     int minDeletions(string s) {
-       unordered_map<char,int> mp;
+       vector<int> vec(26);
         for(auto it:s){
-            mp[it]++;
+            vec[it-'a']++;
         }
-        priority_queue<pair<int , char>> pq;
-        for(auto it: mp){
-            // cout<<it.second<<"-"<<it.first<<endl;
-            pq.push({it.second ,it.first });
-        }
-        int prev=pq.top().first;
-        pq.pop();
+        sort(vec.begin(),vec.end(), greater<int>());
+        int prev=vec[0]+1;
         int ans=0;
-        while(!pq.empty()){
-               // cout<<pq.top().first<<"-"<<pq.top().second<<endl;
-            int curr= pq.top().first;
-            while(curr>=prev && prev>0){
-                curr--;
+        
+        for(int i=0;i<vec.size();i++){
+            cout<<vec[i]<<endl;
+            while(vec[i]>=prev && prev>0){
+                vec[i]--;
                 ans++;
             }
-            if(prev==0) {
-                ans+=curr;
-                curr=0;
+            if(prev==0){
+                ans+=vec[i];
+                vec[i]=0;
             }
-            
-            // cout<<prev<<"-"<<curr<<endl;
-            prev=curr;
-         
-            pq.pop();
+            prev=vec[i];
         }
+        
+
+        
         return ans;
     }
 };
