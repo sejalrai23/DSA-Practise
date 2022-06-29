@@ -1,1 +1,1 @@
-​
+count from down label and find parent update label and level accordingly for even level and odd level and parentpos = (curpos+1)/2;
