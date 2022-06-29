@@ -1,7 +1,6 @@
 class Solution {
 public:
     vector<int> pathInZigZagTree(int label) {
-        // if(label==1) return {1};
         vector<int> ans;
         int idx=0, sum=0;
         while(sum<label){
@@ -15,9 +14,9 @@ public:
             pos = pow(2,idx)-(sum-label);
         }else{
            pos=sum-label+1; 
-        } 
-        cout<<idx<<"-"<<sum<<"-"<<pos<<endl;
+        }
         ans.push_back(label);
+        
         while(idx>=1){
             int parpos= (pos+1)/2;
              idx--;
@@ -32,7 +31,6 @@ public:
            
         }
         
-        // cout<<label<<"-"<<pos<<endl;
         reverse(ans.begin(), ans.end());
         return ans;
         
