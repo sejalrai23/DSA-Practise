@@ -1,0 +1,1 @@
+https://leetcode.com/problems/minimum-moves-to-equal-array-elements/discuss/93828/What-if-we-are-not-smart-enough-to-come-up-with-decrease-1.-Here-is-how-we-do-it.
