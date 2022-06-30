@@ -137,7 +137,7 @@ public:
     void addLeaves(Node* root , vector<int>& vec){
         if(isLeaf(root)){
           vec.push_back(root->data);
-          
+          return;
         } 
         if(root->left) addLeaves(root->left , vec);
         if(root->right) addLeaves(root->right , vec);
