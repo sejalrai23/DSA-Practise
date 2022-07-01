@@ -11,24 +11,15 @@
  */
 class Solution {
 public:
-    int maxi=INT_MIN;
-    void dfs(TreeNode* root , int & cnt , int val){
-        if(root==NULL) return ;
-        cnt= max(abs(val- root->val), cnt);
-        dfs(root->left, cnt , val);
-        dfs(root->right, cnt , val);
-    }
-    
-    void FinalDfs(TreeNode* root ){
-        if(root==NULL) return ;
-        int diff=0;
-        dfs(root , diff, root->val);
-        maxi=max(maxi, diff);
-        FinalDfs(root->left);
-        FinalDfs(root->right);
+    int diff(TreeNode* root , int mini, int maxi){
+        if(root==NULL) return(maxi-mini);
+        mini=min(mini,root->val);
+        maxi=max(maxi, root->val);
+        int lh= diff(root->left , mini , maxi);
+        int rh= diff(root->right , mini, maxi);
+        return max(lh , rh);
     }
     int maxAncestorDiff(TreeNode* root) {
-        FinalDfs(root);
-        return maxi;
+        return diff(root , INT_MAX , INT_MIN);
     }
 };
