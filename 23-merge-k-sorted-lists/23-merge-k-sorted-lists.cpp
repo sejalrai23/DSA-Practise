@@ -11,29 +11,32 @@
 
     class Solution {
 public:
-
+   
+    struct comp{
+        bool operator()(ListNode* a,ListNode* b){
+            return a->val > b->val;
+        }
+    };
     
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         if (lists.size() == 0) return NULL;
         
-        priority_queue< int , vector<int> , greater<int>> pq;
+        priority_queue< ListNode*, vector<ListNode*> , comp> pq;
         
         
         for (int i = 0; i < lists.size(); i++){
-            ListNode* temp=lists[i];
-            while(temp){
-                pq.push(temp->val);
-                temp=temp->next;
-            }
+            if(lists[i]) pq.push(lists[i]);
         }
         
         ListNode* ans=new ListNode(-1);
         ListNode* dum=ans;
         // cout<<pq.size()<<endl;
         while(!pq.empty()){
-            dum->next= new ListNode(pq.top());
+            ListNode* top= pq.top();
             pq.pop();
+            dum->next=top;
             dum=dum->next;
+            if(top->next) pq.push(top->next);
         }
             
         
