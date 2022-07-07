@@ -24,7 +24,7 @@ public:
                     evenH = evenN = curr;
                 else {
                     evenN->next = curr;
-                    evenN = curr;
+                    evenN = evenN->next;
                 }
             }
             else {
@@ -32,7 +32,7 @@ public:
                     oddH = oddN = curr;
                 else {
                     oddN->next = curr;
-                    oddN = curr;
+                    oddN = oddN->next;
                 }
             }
             curr = curr->next;
