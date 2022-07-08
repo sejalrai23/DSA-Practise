@@ -13,7 +13,7 @@ public:
     int numComponents(ListNode* head, vector<int>& nums) {
         if(head==NULL || nums.size()==0) return 0;
         int cnt=0, flag=0;
-        map<int , int> mp;
+        unordered_map<int , int> mp;
         for(auto it : nums) mp[it]++;
         ListNode* p=head;
         while(p){
