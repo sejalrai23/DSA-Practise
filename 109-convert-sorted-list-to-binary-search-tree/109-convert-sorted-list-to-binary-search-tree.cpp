@@ -19,24 +19,24 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
 class Solution {
 public:
-    TreeNode* buildTree(vector<int>& vec, int st , int end){
-        if(st>end) return NULL;
-        int mid= st + (end-st)/2;
-        TreeNode* root= new TreeNode(vec[mid]);
-        root->left=buildTree(vec, st , mid-1);
-        root->right=buildTree(vec, mid+1 , end);
+    TreeNode* sortedListToBST(ListNode* head, ListNode* tail = NULL) {
+        if (head == tail) 
+            return NULL;
+        
+        ListNode* fast = head, *slow = head;
+        while (fast != tail && fast->next != tail) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        
+        TreeNode* root = new TreeNode(slow->val);
+        root->left = sortedListToBST(head, slow);
+        root->right = sortedListToBST(slow->next, tail);
+        
         return root;
     }
-    TreeNode* sortedListToBST(ListNode* head) {
-        vector<int> vec;
-        ListNode* itr= head;
-        while(itr){
-            vec.push_back(itr->val);
-            itr=itr->next;
-        }
-        return buildTree(vec , 0 , vec.size()-1);
-        
-    }
+    
 };
