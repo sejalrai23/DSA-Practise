@@ -10,15 +10,7 @@
  */
 class Solution {
 public:
-    ListNode* reverse(ListNode* root){
-        if(root==NULL) return NULL;
-        ListNode* newhead=reverse(root->next);
-        root->next->next=root;
-        root->next=NULL;
-        return root;
-        
-        
-    }
+
     ListNode* reverseBetween(ListNode* head, int m, int n) {
        if(m==n) return head; 
         ListNode* a=head;
