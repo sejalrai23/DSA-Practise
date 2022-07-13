@@ -11,7 +11,9 @@ class Solution {
         for(auto it: adj[node]){
             if(!vis[it]){
                 if(cycle(adj , vis , it , node)) return true;
-            }else if(it!=par) return true;
+            }else if(it!=par){
+                return true;
+            }
         }
         return false;
     }
@@ -21,7 +23,11 @@ class Solution {
         
         for(int i=0;i<V;i++){
             if(!vis[i]){
-                if(cycle(adj , vis , i, -1)) return true;
+                if(cycle(adj , vis , i, -1)) {
+                    // cout<<i<<endl;
+                    return true;
+                    
+                }
             }
         }
         return false;
