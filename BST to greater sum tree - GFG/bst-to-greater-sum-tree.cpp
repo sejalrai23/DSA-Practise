@@ -101,7 +101,7 @@ class Solution
     int postorder(struct Node* &root){
         if(root==NULL) return 0;
         int rh=postorder(root->right);
-        sum+=rh;
+        // sum+=rh;
         int val=root->data;
         root->data= sum;
         sum+=val;
