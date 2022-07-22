@@ -16,8 +16,8 @@ public:
         ListNode* res2=new ListNode(0);
         res2->next=head;
         res->next=head;
-        ListNode* head1=res2;
-        ListNode* head2=res;
+        ListNode* head2=res2;
+        ListNode* head1=res;
 
         while(res && res->next && res2 && res2->next){
             if(res->next->val<x) res=res->next;
@@ -31,8 +31,8 @@ public:
         }
         
 
-        res->next=head1->next;
-        return head2->next;
+        res->next=head2->next;
+        return head1->next;
         
     }
 };
