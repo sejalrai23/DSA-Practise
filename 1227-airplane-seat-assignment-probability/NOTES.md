@@ -1,1 +1,1 @@
-​
+https://leetcode.com/problems/airplane-seat-assignment-probability/discuss/407707/O(1)-space-O(1)-runtime-with-intuitive-explanation.
