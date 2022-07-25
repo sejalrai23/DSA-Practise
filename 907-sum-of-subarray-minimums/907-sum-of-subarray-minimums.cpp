@@ -26,7 +26,7 @@ public:
         }
         long long ans=0;
         for(int i=0;i< n ;i++){
-            // cout<<left[i]<<"-"<<right[i]<<endl;
+            cout<<left[i]<<"-"<<right[i]<<endl;
             long long prod= (left[i]*right[i])%mod;
             prod= (prod*arr[i])%mod;
             ans+=prod;
