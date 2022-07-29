@@ -22,7 +22,8 @@ public:
         vector<string> ans;
         for(auto it: words){
             if(it.length()==pattern.length()){
-                if(pat==getPattern(it)){
+                vector<int> word=getPattern(it);
+                if(pat==word){
                 ans.push_back(it);
               }
             }
