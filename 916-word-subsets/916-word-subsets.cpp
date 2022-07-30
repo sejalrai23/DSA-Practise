@@ -3,7 +3,7 @@ public:
     
     vector<int> countFreq(string& word){
 	     vector<int> freq(26);
-	     for(auto c : word) freq[c - 'a']++;
+	     for(auto& c : word) freq[c - 'a']++;
 	     return freq;
       }
      vector<string> wordSubsets(vector<string>& word1, vector<string>& word2) {
