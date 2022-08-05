@@ -1,23 +1,16 @@
 class Solution {
 public:
-    string inverse(string s){
-        for(int i=0;i<s.length();i++){
-            if(s[i]=='0') s[i]='1';
-            else s[i]='0';
-        }
-        reverse(s.begin(), s.end());  
-        return s;
-    }
-    
-    string buildString(int i, string s , int n){
-        if(i==n) return s;
-        string ans= s+ '1' + inverse(s); 
-        return buildString(i+1 , ans , n);
+    int recur(int n,int k){
+        if(n==1 || k==1) return 0;
+        if(k==(pow(2,n)/2) || k==(pow(2,n)-1)) return 1;
+        else if(k<(pow(2,n)/2)) return recur(n-1,k);
+        else if(k>(pow(2,n)/2)) return !recur(n-1,(int)(pow(2,n)-k));
+        return 0;
     }
     
     char findKthBit(int n, int k) {
-        string ans= buildString(1, "0", n);
-        // cout<<ans.length()<<endl;
-        return ans[k-1];
+        int ch = recur(n,k);
+        // cout<<ch<<endl;
+        return ch==1 ? '1' :'0';
     }
 };
