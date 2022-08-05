@@ -18,10 +18,6 @@ public:
     char findKthBit(int n, int k) {
         string ans= buildString(1, "0", n);
         // cout<<ans.length()<<endl;
-        char res;
-        for(int i=0;i<k ;i++) {
-            res=ans[i];
-        }
-        return res;
+        return ans[k-1];
     }
 };
