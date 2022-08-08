@@ -5,19 +5,14 @@ public:
         long long day =0;
         
         for(auto it : tasks){
-            if(mp.find(it)==mp.end()){
-                day++;
-                mp[it]=day;
-            }else{
-                int sp= day- mp[it];
+            if(mp.find(it)!=mp.end()){
+               int sp= day- mp[it];
                 if(sp<space){
-                    day+= space- sp+1;
-                    mp[it]=day;
-                }else{
-                    day++;
-                    mp[it]=day;
+                    day+= space- sp;             
                 }
             }
+            day++;
+            mp[it]=day;
         }
         return day;
     }
