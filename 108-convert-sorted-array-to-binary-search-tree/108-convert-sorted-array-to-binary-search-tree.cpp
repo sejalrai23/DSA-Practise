@@ -16,7 +16,7 @@ public:
         if(strt>= end){
             return NULL;
         }
-        int mid=(strt+end) /2;
+        int mid= (end-strt)/2 + strt;
         
         TreeNode* root=new TreeNode(nums[mid]);
         root->left=BuildTree(nums , strt , mid);
