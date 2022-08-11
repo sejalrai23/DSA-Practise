@@ -1,1 +1,1 @@
-​
+https://leetcode.com/problems/generate-parentheses/discuss/1370756/Accepted-C%2B%2B-or-Whiteboard-Recursion-Tree-or-Easy-or-Please-Upvote
