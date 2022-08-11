@@ -32,14 +32,15 @@ public:
 
 void helper(string &digits, int i, string combi){	
 	if(i == size(digits)) {
-        cout<<combi<<endl;
+        // cout<<combi<<endl;
 		ans.push_back(combi); 
     } 
            
 	else {
 		for(auto c : mappings[digits[i] - '2']){
-            // combi+=c;
-            helper(digits, i + 1, combi+c );
+            combi.push_back(c);
+            helper(digits, i + 1, combi );
+            combi.pop_back();
         } 
     }
 			
