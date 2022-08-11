@@ -14,11 +14,20 @@ public:
 	ListNode* iter = head;
 	int len = 0, i = 1;
 	while(iter) iter = iter -> next, len++;    // finding the length of linked list
-	if(len == n) return head -> next;          // if head itself is to be deleted, just return head -> next
-	for(iter = head; i < len - n; i++) iter = iter -> next; // iterate first len-n nodes
-	iter -> next = iter -> next -> next;      // remove the nth node from the end
-	return head;
-}
+	if(len == n) return head -> next;
+       int pos = len-n ;
+       // cout<<pos<<endl;
+       iter=head;
+       while(i<pos){
+          iter=iter->next; 
+           i++;
+       }
+       // cout<<iter->val<<endl;
+       iter->next=iter->next->next;
+       return head;
+       
+       
+   }
 };
 
 // TC = O(LEN OF LINKED LIST)
