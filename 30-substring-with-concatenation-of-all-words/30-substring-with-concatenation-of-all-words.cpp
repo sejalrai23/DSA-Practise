@@ -1,7 +1,7 @@
 class Solution {
 public:
-    bool checkSubstr(unordered_map<string , int> temp , int wordLen , int start , int windowLen , string s){
-        unordered_map<string , int>  mp=temp;
+    bool checkSubstr(unordered_map<string , int> mp , int wordLen , int start , int windowLen , string s){
+        
         // cout<<start<<"-"<<start+windowLen<<endl;
         for(int i=start;i<start+windowLen ; i+=wordLen){
             // cout<<i<<"-"<<wordLen<<endl;
