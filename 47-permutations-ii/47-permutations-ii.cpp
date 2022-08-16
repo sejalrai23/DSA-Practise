@@ -2,7 +2,6 @@
 class Solution {
 public:
     vector<vector<int>> ans;
-    map<int, int> m1;
     void recur(int ind , vector<int>  nums ){
        
         if(ind==nums.size()){
