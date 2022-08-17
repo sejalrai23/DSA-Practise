@@ -1,29 +1,17 @@
 class Solution {
 public:
     bool canJump(vector<int>& nums) {
-        int reach =0,i=0;
-        
-        
-        while(i<nums.size()){
-            
-            reach=max(reach, i+nums[i]);
-            
-            if(reach>=nums.size()-1){
-                return true;
-            }
-            
-            if(i==reach ){
-                if(nums.size()-1==reach){  // cases like [0]
-                    return true;
-                }
-                return false;
-            }
-            i++;
-            // cout<<reach<<endl;
-                
-            
+        int n = nums.size(), start = 0, end = 0;
+        while (end < n - 1) {
+			int maxend=0;
+			for (int i = start; i <= end; i++) {
+                if (i + nums[i] >= n - 1) return true;
+				maxend = max(maxend, i + nums[i]);
+			}
+            if(maxend==0) return false;
+            start = end + 1;
+            end = maxend;
         }
-        return reach>=nums.size()-1;
-        
+		return true;
     }
 };
