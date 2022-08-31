@@ -8,18 +8,17 @@ public:
         }
         int maxi=INT_MIN;
         for(int i=0;i<n;i++){
-            int cnt=0;
-            for(auto x: adj[i]){
-                cnt++;
-             }
             for(int j=i+1 ; j<n ;j++){
                int cnt1=0;
                for(auto x: adj[j]){
-                   if(x!=i){
-                      cnt1++;
+                   if(x==i){
+                      cnt1=1;
+                       break;
                    }
                }
-               maxi=max(cnt1+cnt,maxi);    
+                int m=adj[i].size();
+                int n=adj[j].size();
+               maxi=max( m+n-cnt1,maxi);    
             }      
         }
         return maxi;
