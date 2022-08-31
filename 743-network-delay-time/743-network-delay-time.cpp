@@ -7,7 +7,7 @@ public:
         }
         vector<int> vis(n+1,INT_MAX);
         queue<int> q;
-        q.push(k);
+        q.push(k); 
         vis[k]=0;
         while(!q.empty()){
             int node=q.front();
