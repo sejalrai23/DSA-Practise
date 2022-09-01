@@ -6,7 +6,7 @@ public:
         int val=arr[idx];
         arr[idx]=-1;
         bool ans= dfs(arr , idx+val) || dfs(arr, idx-val);
-        arr[idx]=val;
+        // arr[idx]=val;
         return ans;
     }
     bool canReach(vector<int>& arr, int start) {
