@@ -12,18 +12,21 @@
 class Solution {
 public:
     int cnt=0;
-    int count(TreeNode* root ,int val ){
+    void count(TreeNode* root ,int val ){
         if(root==NULL){
-            return 0;
+            return;
         }
        
         if(root->val>=val){
+            // cout<<root->val <<"-"<<val<<endl;
             cnt++;
         }
-        return cnt+  count(root->left,max(val,root->val))+count(root->right,max(val,root->val));
+        // max(val,root->val);
+        count(root->left,max(val,root->val));
+        count(root->right,max(val,root->val));
     }
     int goodNodes(TreeNode* root) {
-        int val= INT_MIN;
+        int val=INT_MIN;
         count(root, val);
         return cnt;
     }
