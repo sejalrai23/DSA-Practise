@@ -12,13 +12,24 @@
 
 class Solution {
 public:
-    TreeNode* pruneTree(TreeNode* root) {
-        if(root!=NULL){
-            root->left = pruneTree(root->left);
-            root->right = pruneTree(root->right);
-            if(!root->left && !root->right && root->val==0)
-                return NULL;
+    bool zeroNode(TreeNode* & root,bool left1 , bool right1){
+        if(root==NULL) return true;
+        bool left = zeroNode(root->left, left1 , right1);
+        bool right =zeroNode(root->right,left1 , right1);
+        
+       if(left) root->left=NULL;
+        if(right) root->right=NULL;
+        if(root->val==0){
+            return (true && (left && right));
         }
+        
+      
+        return false;
+    }
+    TreeNode* pruneTree(TreeNode* root) {
+        
+        bool ans=zeroNode(root, true , true);
+        if(ans) return {};
         return root;
     }
 
