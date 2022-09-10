@@ -9,7 +9,7 @@ public:
     int fib(int n) {
         if(n==0) return 0;
         memset(dp, -1, sizeof(dp));
-        fibo(n);
-        return dp[n];
+        // fibo(n);
+        return fibo(n);
     }
 };
