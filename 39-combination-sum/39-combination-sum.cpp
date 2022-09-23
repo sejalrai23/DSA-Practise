@@ -1,6 +1,10 @@
 class Solution {
 public:
     void combination(int i,int target , vector<int>& can,vector<vector<int>>& ans ,vector<int>& ds){
+        if(target==0){
+            ans.push_back(ds);
+            return;
+        }
         if(i==can.size()){
             if(target==0){
                 ans.push_back(ds);
