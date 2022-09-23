@@ -6,7 +6,6 @@ public:
         for(auto it :words){
           mp[it]++;
         }
-        // cout<<mp.size()<<endl;
         int ans=0, flag=0;
          for(auto it : mp){
             string res=it.first;
@@ -14,7 +13,6 @@ public:
             find+=res[1];
             find+=res[0];
             if(mp[find]>0){
-                // cout<<res<<"-"<<find<<endl;
                 if(res==find){
                    if(mp[res]%2==0){
                        ans+= mp[res]*2;
@@ -31,10 +29,6 @@ public:
             } 
             mp[res]=0;
         }    
-        
-        // for (auto it: mp){
-        //     cout<<it.first<<"-"<<it.second<<endl;
-        // }
         if(flag) ans+=2;
         return ans;
     }
