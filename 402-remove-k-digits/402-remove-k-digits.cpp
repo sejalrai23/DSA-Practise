@@ -19,21 +19,14 @@ public:
             ans+=num[i];
             
         }
-         int j=0;
+        
         cout<<ans<<"-"<<k<<endl;
-        if(k==0){
-           while(ans[j]=='0'){
-             j++;  
-           }
-           ans=ans.substr(j, ans.length()-j);
-            
-        } else{
+
+        if(k!=0) {
             ans=ans.substr(0, ans.size()-k);
         }
-        // if(ans.size()>k){
-        //      return 
-        //  }
-        j=0;
+        
+        int j=0;
         while(ans[j]=='0'){
              j++;  
          }
