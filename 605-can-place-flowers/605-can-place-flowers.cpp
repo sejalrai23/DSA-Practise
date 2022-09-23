@@ -12,7 +12,7 @@ class Solution {
                     break;
             }
         }
-        return count>=n?true:false;
+        return count>=n;
     }
 };
 
