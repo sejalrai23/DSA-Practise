@@ -1,1 +1,1 @@
-count cumulatively the number of smaller ones and store it in stack
+​
