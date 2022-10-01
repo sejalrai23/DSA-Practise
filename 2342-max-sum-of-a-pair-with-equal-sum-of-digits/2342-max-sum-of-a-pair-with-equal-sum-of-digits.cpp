@@ -1,13 +1,12 @@
 class Solution {
 public:
-    int getsum(int num){
-        string s= to_string(num);
-        int ans=0;
-        for(int i=0;i<s.length();i++){
-            // cout<<s[i]<<endl;
-            ans+= s[i]-'0';
+    int getsum(int a){
+        int sum=0;
+       while (a != 0) {
+            sum = sum + a % 10;
+             a = a / 10;
         }
-        return ans;
+        return sum;
     }
     int maximumSum(vector<int>& nums) {
         unordered_map<int,vector<int>> ump;
