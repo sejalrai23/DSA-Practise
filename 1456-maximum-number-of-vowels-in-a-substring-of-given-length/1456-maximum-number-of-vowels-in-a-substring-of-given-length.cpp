@@ -10,12 +10,20 @@ public:
                 j++;
             }else if(j-i+1==k){
                 mx=max(cnt,mx);
-                if(s[i]=='a' || s[i]=='e' || s[i]=='i'|| s[i]=='o' || s[i] =='u'){
-                    cnt--;
+                j++;    
+            }
+            else if(j-i+1>k){
+                while(j-i+1>k){
+                    if(s[i]=='a' || s[i]=='e' || s[i]=='i'|| s[i]=='o' || s[i] =='u'){
+                        cnt--;
+                    }
+                    i++;
                 }
-                i++;
-                j++;
                 
+                if(j-i+1==k){
+                    mx= max(cnt , mx);
+                }
+                j++;
             }
         }
         return mx;
