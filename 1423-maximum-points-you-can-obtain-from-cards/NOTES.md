@@ -1,1 +1,1 @@
-​
+we need to calculate subarray with minimum score and then substract it from the sum to get the rewuired card score
