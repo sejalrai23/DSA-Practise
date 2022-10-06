@@ -1,1 +1,1 @@
-​
+if the number of characters are unique then we move froward if we get size of array greater than map size hence we have a duplicate!
