@@ -11,8 +11,15 @@ public:
                 if(avg>=threshold*k){
                     cnt++;
                 }
-                avg-=arr[i];
-                i++;
+                j++;
+            }else if(j-i+1>k){
+                while(j-i+1>k){
+                    avg-=arr[i];
+                    i++;
+                }
+                if(avg>=threshold*k){
+                    cnt++;
+                }
                 j++;
             }
         }
