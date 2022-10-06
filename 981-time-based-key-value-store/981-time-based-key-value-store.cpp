@@ -1,43 +1,33 @@
 class TimeMap {
 public:
-    map<pair<string , int> , string> mp;
-    map<string , vector<int> > mp2;
-    TimeMap() {
-        
-    }
+    unordered_map<string, vector<pair<int, string>>> mp;
+    TimeMap() {}
     
     void set(string key, string value, int timestamp) {
-        mp[{key , timestamp}]= value;
-        mp2[key].push_back(timestamp);
+        mp[key].push_back({timestamp, value});
     }
     
     string get(string key, int timestamp) {
-        if(mp.find({key , timestamp})!=mp.end()){
-            return mp[{key , timestamp}];
-        }else if(mp2.find(key)!=mp2.end()){
-             // sort(mp2[key].begin(), mp2[key].end());
-            auto it=lower_bound(mp2[key].rbegin(), mp2[key].rend(), timestamp, greater<int>());
-            if(it!=mp2[key].rend()){
-                return mp[{key, *it}];
-            }else{
-                it--;
+        
+        auto &v = mp[key];
+        
+        int low = 0;
+        int high = v.size()-1;
+        int idx = -1;
+        
+        while(low <= high)
+        {
+            int mid = low + (high - low)/2;
+            if(v[mid].first <= timestamp)
+            {
+                idx = mid;
+                low = mid+1;
             }
-            // cout<<*it<<endl;
-            if(*it > timestamp) return "";
-
-            return mp[{key , *it}];
-            
+            else high = mid-1;
         }
-        
-       
-       return "";
-        
-    }
-};
+        if(idx == -1) return "";
+        return v[idx].second;
 
-/**
- * Your TimeMap object will be instantiated and called as such:
- * TimeMap* obj = new TimeMap();
- * obj->set(key,value,timestamp);
- * string param_2 = obj->get(key,timestamp);
- */
+    }
+    
+};
