@@ -1,11 +1,23 @@
 class MyCalendar {
-    unordered_map<int, int>bookings;
+   map<int, int> mp;
 public:    
-    bool book(int s1, int e1) {
-        for(auto [s2, e2] : bookings) 
-            if( !(s1 >= e2 || s2 >= e1) )  
-			    return false; 
-        bookings[s1] = e1;                 
+    bool book(int start, int end) {
+        mp[start]++;    //is start then increase counter because it can overlap
+        mp[end]--;      //if end decrease because it cannot overlap anymore
+        int ans=0, temp=0;
+        for(auto it: mp){
+            temp+=it.second;
+            ans=max(ans , temp);   // calculate max for every step
+            if(ans==2){
+                mp[start]--;
+                mp[end]++;
+                return false;
+            }
+            
+            
+        }
+        // cout<<ans<<endl;
+   
         return true;
     }
 };
