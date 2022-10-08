@@ -9,13 +9,12 @@ public:
         }
         vector<vector<int>> ans;
         for(int i=0;i<n ;i++ ){
-            // if(nums[i]>0) return {};
+            if(nums[i]>0) break;
             
             if(i>0 && nums[i]==nums[i-1]) continue;
             for(int j=i+1; j< n ;j++){
                 if(mp.find(-(nums[i]+nums[j]))!=mp.end() && mp.find(-(nums[i]+nums[j]))->second>j){
                     ans.push_back({nums[i], nums[j] , -(nums[i]+nums[j])});
-                    // mp[-(nums[i]+nums[j])]--;
                 }
                 j = mp.find(nums[j])->second;
             }
