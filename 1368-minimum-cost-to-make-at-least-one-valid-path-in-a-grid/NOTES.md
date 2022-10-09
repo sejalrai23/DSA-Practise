@@ -1,0 +1,1 @@
+from every cell weare calculating min cost to moving to all its adjacent cells and in this way we get to reach the last cell
