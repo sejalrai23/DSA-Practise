@@ -11,37 +11,29 @@
  */
 class BSTIterator {
 public:
-    vector<int> v;
-    int x=0;
-    void inorder(TreeNode* root){
-        if(root==NULL){
-            return;
-        }
-        inorder(root->left);
-        v.push_back(root->val);
-        inorder(root->right);
+    stack<TreeNode*> s;
+    BSTIterator(TreeNode* root) {
+        partialInorder(root);
     }
     
-    BSTIterator(TreeNode* root) {
-        inorder(root);
-        
+    void partialInorder(TreeNode* root){
+        while(root != NULL){
+            s.push(root);
+            root = root->left;
+        }
     }
     
     int next() {
-        int ans= v[x];
-        x++;
-        return ans;
+        TreeNode* top = s.top();
+        s.pop();
+        partialInorder(top->right);
+        return top->val;
     }
     
     bool hasNext() {
-        if(x<v.size()){
-            return true;
-        }
-        return false;
-        
+        return !s.empty();
     }
 };
-
 /**
  * Your BSTIterator object will be instantiated and called as such:
  * BSTIterator* obj = new BSTIterator(root);
