@@ -42,7 +42,7 @@ public:
 				}
 				l = lst.top();
 				lst.pop();
-			} else {
+ 			} else {
 				r = r->left;
 				while (r != nullptr) {
 					rst.push(r);
