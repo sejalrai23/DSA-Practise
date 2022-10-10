@@ -21,15 +21,6 @@ public:
             }
         }
         if(res) return s;
-        
-        for(int i=last;i<s.length();i++){
-            if(s[i]!='a'){
-                s[i]='a';
-                res=true;
-                break;
-            }
-        }
-        if(res) return s;
         else if(!res){
             s[s.length()-1]='b';
             return s;
