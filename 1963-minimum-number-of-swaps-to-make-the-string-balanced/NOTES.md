@@ -1,1 +1,1 @@
-​
+one using two pointers one using stack.
