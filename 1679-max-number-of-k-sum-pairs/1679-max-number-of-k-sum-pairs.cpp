@@ -6,6 +6,8 @@ public:
             m1[x]++;
         }
         int cnt=0;
+        
+        
         for(auto x:m1){
            int t=k-x.first;
             if(t==x.first) cnt+= x.second /2;
