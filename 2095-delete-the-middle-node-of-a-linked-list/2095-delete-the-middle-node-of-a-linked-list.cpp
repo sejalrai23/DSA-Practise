@@ -28,7 +28,8 @@ public:
             }
            mid--;
         }
-        if(a->next) a->next=a->next->next;
+        a->next=a->next->next;
+        // if(a->next) a->next=a->next->next;
         return head;
     }
 };
