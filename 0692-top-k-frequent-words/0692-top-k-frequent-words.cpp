@@ -7,7 +7,7 @@ public:
     bool operator()(pair<string, int> a, pair<string, int> b) const{
        if(a.second==b.second) return a.first < b.first;
     
-        return a.second> b.second;
+        return a.second > b.second;
     }
 };
     
