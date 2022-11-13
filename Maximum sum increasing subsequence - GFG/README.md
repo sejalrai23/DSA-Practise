@@ -1,7 +1,6 @@
 # Maximum sum increasing subsequence
-## Medium 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given an array of n positive integers. Find the sum of the maximum sum subsequence of the given array such that the integers in the subsequence are sorted in increasing order i.e. increasing subsequence.&nbsp;</span></p>
+## Medium
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an array of n positive integers. Find the sum of the maximum sum subsequence of the given array such that the integers in the subsequence are sorted in strictly increasing order i.e. a strictly increasing subsequence.&nbsp;</span></p>
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
@@ -31,5 +30,4 @@ You don't need to read input or print anything. Complete the function <strong><c
 <span style="font-size:18px"><strong>Constraints:</strong><br>
 1 ≤ N ≤ 10<sup>3</sup></span><br>
 <span style="font-size:18px">1 ≤ arr[i] ≤ 10<sup>5</sup></span></p>
- <p></p>
-            </div>
+</div>
